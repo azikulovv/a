@@ -2,7 +2,8 @@ import { fetch } from "../helpers/client";
 
 export default {
   async get(params) {
-    return await fetch("/sapi/v1/broker/subAccountApi", "get", null, params);
+    const { data, error } = await fetch("/sapi/v1/broker/subAccountApi", "get", null, params);
+    return { data: { result: data }, error };
   },
 
   async create(params) {

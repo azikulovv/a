@@ -22,7 +22,6 @@ export default {
     const { subAccountId, canTrade, marginTrade, futuresTrade } = context.request.body;
 
     if (!subAccountId) return context.badRequest("'subAccountId' is required!");
-    if (!canTrade) return context.badRequest("'canTrade' is required!");
 
     try {
       return await strapi.service("api::binance.api-key").create({
